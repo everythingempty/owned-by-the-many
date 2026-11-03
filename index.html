@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The agent economy, owned by the many</title>
+<meta name="description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals: title, not floor.">
+<meta name="theme-color" content="#C3271B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The agent economy, owned by the many">
+<meta property="og:description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals on why broad ownership of agents is how humanity stays in the principal's seat.">
+<meta property="og:site_name" content="Virtuals">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The agent economy, owned by the many">
+<meta name="twitter:description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23C3271B'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='40' fill='%23F4ECDC'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4ECDC;
+    --paper-2:#EBE1CC;
+    --ink:#141210;
+    --ink-2:#4A443D;
+    --red:#C3271B;
+    --red-deep:#8E1A11;
+    --rule:rgba(20,18,16,.22);
+    --rule-soft:rgba(20,18,16,.10);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --shout:'Archivo Black','Arial Black',Impact,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --gutter:clamp(1.25rem,5vw,4.5rem);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--serif);font-weight:400;
+    font-variation-settings:'opsz' 12,'SOFT' 0,'WONK' 0;
+    font-size:clamp(1.1rem,1rem + .45vw,1.4rem);line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.085;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--red);color:var(--paper)}
+  a{color:inherit}
+  .mono{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--red);z-index:60;transition:width .08s linear}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    padding:calc(var(--gutter) * .9) var(--gutter) 0;
+    display:grid;grid-template-columns:1fr auto;grid-template-areas:"deed deed" "head seal" "kick seal";
+    column-gap:clamp(1rem,4vw,4rem);align-items:end;
+    min-height:min(92vh,980px);
+  }
+  .deed-row{grid-area:deed;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    padding-bottom:.9rem;border-bottom:2px solid var(--ink);margin-bottom:clamp(2rem,6vh,5rem)}
+  .deed-row .red{color:var(--red)}
+  .headline{
+    grid-area:head;margin:0;
+    font-weight:600;font-size:clamp(2.9rem,9.2vw,9rem);line-height:.9;letter-spacing:-.03em;
+    font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 1;
+    text-wrap:balance;
+  }
+  .headline em{font-style:italic;color:var(--red);font-weight:500;font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1}
+  .kicker{grid-area:kick;margin:clamp(1.5rem,3vh,2.5rem) 0 clamp(2rem,5vh,4rem);display:flex;gap:1.25rem;align-items:baseline;flex-wrap:wrap}
+  .kicker .for{font-style:italic;font-size:1.25em;font-variation-settings:'opsz' 36,'SOFT' 60,'WONK' 1}
+  .seal{grid-area:seal;width:clamp(120px,16vw,220px);height:auto;color:var(--ink);align-self:end;margin-bottom:clamp(2rem,5vh,4rem);
+    transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .seal:hover{transform:rotate(-8deg) scale(1.04)}
+  @media (max-width:760px){
+    .masthead{grid-template-columns:1fr;grid-template-areas:"deed" "head" "kick" "seal";min-height:0}
+    .seal{justify-self:start;margin-top:.5rem}
+  }
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--red);color:var(--paper);overflow:hidden;white-space:nowrap;
+    font-family:var(--shout);text-transform:uppercase;font-size:clamp(1rem,2.2vw,1.5rem);letter-spacing:.02em;
+    padding:.75rem 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .ticker-track{display:inline-flex;width:max-content;animation:tick 34s linear infinite}
+  .ticker-half{display:inline-flex;align-items:center;gap:2.2rem;padding-right:2.2rem}
+  .ticker .star{font-family:var(--serif);font-weight:300}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+  /* ---------- articles ---------- */
+  .article{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);
+    column-gap:clamp(1.5rem,4vw,4rem);row-gap:1.5rem;
+    padding:clamp(3.5rem,8vw,7rem) var(--gutter);border-top:1px solid var(--rule);
+  }
+  .art-label{grid-column:1;display:flex;flex-direction:column;gap:.5rem}
+  .art-label .num{font-family:var(--shout);font-size:clamp(2.2rem,4vw,3.4rem);line-height:1;color:var(--red);letter-spacing:-.02em}
+  .art-label .name{font-style:italic;font-size:1.15em;font-variation-settings:'opsz' 24,'SOFT' 60,'WONK' 1;color:var(--ink-2)}
+  .art-body{grid-column:2}
+  .art-body p{margin:0 0 1.25em}
+  .art-body p:last-child{margin-bottom:0}
+  .art-body > p:first-of-type::first-letter{
+    float:left;font-weight:700;color:var(--red);font-size:4.1em;line-height:.78;padding:.08em .1em 0 0;
+    font-variation-settings:'opsz' 144,'SOFT' 20,'WONK' 1;
+  }
+  .art-note{grid-column:3;position:sticky;top:5rem;align-self:start;
+    font-family:var(--mono);font-size:.72rem;line-height:1.7;letter-spacing:.04em;color:var(--ink-2);
+    border-left:2px solid var(--red);padding-left:.9rem;max-width:26ch}
+  .art-note b{color:var(--red);font-weight:700}
+  .pull{
+    margin:2.25rem 0 0;padding:0;font-style:italic;font-weight:500;color:var(--red);
+    font-size:clamp(1.55rem,2.9vw,2.5rem);line-height:1.12;letter-spacing:-.015em;
+    font-variation-settings:'opsz' 72,'SOFT' 80,'WONK' 1;text-wrap:balance;
+  }
+  .pull::before{content:"";display:block;width:3.5rem;height:3px;background:currentColor;margin-bottom:1rem}
+  @media (min-width:1100px){.pull{margin-left:-12%;margin-right:-12%}}
+  @media (max-width:900px){
+    .article{grid-template-columns:1fr;row-gap:1.25rem}
+    .art-label,.art-body,.art-note{grid-column:1}
+    .art-label{flex-direction:row;align-items:baseline;gap:1rem}
+    .art-note{position:static;max-width:none;margin-top:.5rem}
+  }
+
+  /* the open question: one big line */
+  .question .art-body p{
+    font-size:clamp(1.6rem,3.6vw,3.1rem);line-height:1.1;letter-spacing:-.02em;font-weight:500;
+    font-variation-settings:'opsz' 96,'SOFT' 30,'WONK' 1;text-wrap:balance;
+  }
+  .question .art-body > p:first-of-type::first-letter{float:none;font-size:inherit;color:inherit;padding:0;font-weight:inherit;line-height:inherit;font-variation-settings:inherit}
+  .question .art-body strong{color:var(--red);font-weight:600}
+
+  /* dark turn */
+  .dark{background:var(--ink);color:var(--paper);border-top:2px solid var(--ink)}
+  .dark .art-label .name{color:rgba(244,236,220,.7)}
+  .dark .art-note{color:rgba(244,236,220,.72)}
+  .dark .pull{color:var(--paper)}
+  .dark .art-body > p:first-of-type::first-letter{color:var(--red)}
+  .dark ::selection{background:var(--paper);color:var(--ink)}
+  .dark + .article{border-top:2px solid var(--ink)}
+
+  /* ---------- covenants ---------- */
+  .covenants-head{padding:clamp(3.5rem,8vw,7rem) var(--gutter) 2.5rem;border-top:1px solid var(--rule);
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);column-gap:clamp(1.5rem,4vw,4rem)}
+  .covenants-head .art-label{grid-column:1}
+  .covenants-head .art-body{grid-column:2}
+  @media (max-width:900px){.covenants-head{grid-template-columns:1fr}.covenants-head .art-body{grid-column:1}.covenants-head .art-label{flex-direction:row;align-items:baseline;gap:1rem}}
+  .covenants{
+    margin:0 var(--gutter) clamp(3.5rem,8vw,7rem);
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+    background:var(--rule);border:1px solid var(--rule);
+  }
+  .cov{
+    background:var(--paper);padding:clamp(1.4rem,2.5vw,2.2rem);min-height:clamp(15rem,26vw,22rem);
+    display:flex;flex-direction:column;justify-content:space-between;gap:2rem;position:relative;
+    transition:background .35s ease,color .35s ease;cursor:default;
+  }
+  .cov:hover{background:var(--ink);color:var(--paper)}
+  .cov .tag{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+  .cov .tag .mono{opacity:.75}
+  .cov .n{
+    font-family:var(--shout);font-size:clamp(3.4rem,7vw,6.5rem);line-height:.85;letter-spacing:-.03em;
+    color:transparent;-webkit-text-stroke:2px var(--red);transition:color .35s ease;
+  }
+  .cov:hover .n{color:var(--red)}
+  .cov p{margin:0;font-size:clamp(1.02rem,.95rem + .3vw,1.2rem);line-height:1.42;font-variation-settings:'opsz' 14}
+  .cov .stamp{
+    position:absolute;right:1rem;top:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+    border:2px solid var(--red);color:var(--red);padding:.25rem .5rem;transform:rotate(6deg);opacity:0;
+    transition:opacity .3s ease,transform .3s ease;
+  }
+  .cov:hover .stamp{opacity:1;transform:rotate(-4deg)}
+  @media (max-width:1000px){.covenants{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.covenants{grid-template-columns:1fr}.cov{min-height:0}}
+
+  /* ---------- poster ---------- */
+  .poster{
+    padding:clamp(4rem,10vw,9rem) var(--gutter);border-top:2px solid var(--ink);
+    background:var(--paper-2);text-align:center;
+  }
+  .poster-line{
+    margin:0 auto;max-width:14ch;
+    font-weight:600;font-size:clamp(2.6rem,8vw,7.5rem);line-height:.92;letter-spacing:-.03em;
+    font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 1;text-wrap:balance;
+  }
+  .poster-line .dollar{font-family:var(--shout);font-weight:400;letter-spacing:-.02em;font-size:.86em}
+  .poster-line .hl{
+    font-style:italic;color:var(--red);font-weight:500;font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;
+    background-image:linear-gradient(transparent 70%,rgba(195,39,27,.28) 70%,rgba(195,39,27,.28) 94%,transparent 94%);
+  }
+  .poster-line .strike{position:relative;white-space:nowrap}
+  .poster-line .strike::after{
+    content:"";position:absolute;left:-2%;right:-2%;top:54%;height:.08em;background:var(--red);transform:rotate(-2.5deg);
+    transform-origin:center;
+  }
+  .poster-sub{margin:clamp(1.5rem,3vw,2.5rem) auto 0;max-width:34ch;font-style:italic;font-size:clamp(1.2rem,2.2vw,1.8rem);
+    font-variation-settings:'opsz' 36,'SOFT' 60,'WONK' 1;color:var(--ink-2)}
+
+  /* ---------- close ---------- */
+  .close{padding:clamp(4rem,10vw,9rem) var(--gutter) clamp(3rem,6vw,5rem);border-top:2px solid var(--ink)}
+  .shout{
+    margin:0;font-family:var(--shout);text-transform:uppercase;
+    font-size:clamp(1.9rem,6.6vw,6rem);line-height:.95;letter-spacing:-.02em;text-wrap:balance;
+  }
+  .shout.red{color:var(--red)}
+  .close-body{max-width:50ch;margin:clamp(1.75rem,4vw,3rem) 0 0;font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.35;
+    font-variation-settings:'opsz' 24;text-wrap:pretty}
+  .deed{
+    margin-top:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  }
+  .deed > div{padding:1.1rem 1rem 1.1rem 0;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:.5rem}
+  .deed > div:not(:first-child){padding-left:1rem}
+  .deed > div:last-child{border-right:0}
+  .deed .label{color:var(--red)}
+  .deed .value{font-style:italic;font-size:1.35em;line-height:1.1;font-variation-settings:'opsz' 36,'SOFT' 60,'WONK' 1}
+  @media (max-width:760px){.deed{grid-template-columns:1fr 1fr}.deed > div{border-right:0;border-bottom:1px solid var(--rule);padding-left:0}.deed > div:not(:first-child){padding-left:0}.deed > div:nth-child(odd){padding-right:1rem}.deed > div:nth-child(even){padding-left:1rem}.deed > div:nth-last-child(-n+2){border-bottom:0}}
+  .actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-top:clamp(2rem,4vw,3rem)}
+  .btn{
+    appearance:none;border:2px solid var(--ink);background:var(--ink);color:var(--paper);
+    font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    padding:.95rem 1.3rem;cursor:pointer;transition:transform .15s ease,background .2s ease,color .2s ease;
+  }
+  .btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  footer{padding:1.5rem var(--gutter) 2.5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-2)}
+  footer a{text-decoration:none;border-bottom:1px solid var(--rule)}
+  footer a:hover{color:var(--red);border-color:var(--red)}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="deed-row mono">
+    <span>Title No. 0001</span>
+    <span class="red">The agent era</span>
+    <span>Draft 01 &middot; Nov 2026</span>
+  </div>
+  <h1 class="headline">The agent economy, <em>owned by the many.</em></h1>
+  <p class="kicker"><span class="mono">A manifesto</span><span class="for">for Virtuals</span></p>
+  <svg class="seal" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="sealpath" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/>
+    </defs>
+    <circle cx="100" cy="100" r="97" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="2"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="40s" repeatCount="indefinite"/>
+      <text font-family="'JetBrains Mono',monospace" font-size="11.5" font-weight="700" letter-spacing="1.6" fill="currentColor">
+        <textPath href="#sealpath" textLength="438" lengthAdjust="spacing">THE AGENT ECONOMY &#10022; OWNED BY THE MANY &#10022; TITLE, NOT FLOOR &#10022; </textPath>
+      </text>
+    </g>
+    <text x="100" y="97" text-anchor="middle" font-family="'Archivo Black',sans-serif" font-size="26" fill="#C3271B">$V</text>
+    <text x="100" y="118" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing="2" fill="currentColor">No. 0001</text>
+  </svg>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-half">
+      <span>Agents will run the economy</span><span class="star">&#10022;</span>
+      <span>The many will own the agents</span><span class="star">&#10022;</span>
+      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Agents will run the economy</span><span class="star">&#10022;</span>
+      <span>The many will own the agents</span><span class="star">&#10022;</span>
+      <span>Title, not floor</span><span class="star">&#10022;</span>
+    </div>
+    <div class="ticker-half">
+      <span>Agents will run the economy</span><span class="star">&#10022;</span>
+      <span>The many will own the agents</span><span class="star">&#10022;</span>
+      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Agents will run the economy</span><span class="star">&#10022;</span>
+      <span>The many will own the agents</span><span class="star">&#10022;</span>
+      <span>Title, not floor</span><span class="star">&#10022;</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section class="article reveal">
+    <div class="art-label"><span class="num">I</span><span class="name">The base</span></div>
+    <div class="art-body">
+      <p>Humanity is not complicated. People need to be fed, housed, and useful. Every stable society in history has delivered those three things, and every revolution has followed their failure: bread marched on Versailles and on Petrograd, and the grain dole kept Rome quiet for five centuries. The question for any era is not which ideology is correct. It is whether ordinary people hold a claim on what the economy produces.</p>
+    </div>
+    <aside class="art-note"><b>Fed. Housed. Useful.</b><br>Versailles, Oct. 1789<br>Petrograd, Feb. 1917<br>Rome, cura annonae, c. 123 BC &ndash; 5th c. AD</aside>
+  </section>
+
+  <section class="article reveal">
+    <div class="art-label"><span class="num">II</span><span class="name">Title</span></div>
+    <div class="art-body">
+      <p>The two great feeding successes of the modern age answered that question the same way. America kept inventing instruments that let ordinary people own the productive asset of the day: the joint-stock company put railroads in the hands of clerks, the Homestead Act gave land to anyone who would work it, the thirty-year mortgage and the GI Bill gave a generation its houses, and the index fund let a schoolteacher own the whole economy. China's reform began with eighteen farmers at Xiaogang keeping the surplus of their own land, and much of its stability rests on 1998, when the state sold its urban housing to the people living in it. In both countries the calm decades were the broad-ownership decades and the angry ones were the decades of concentration. Neither success was about capitalism or socialism; Deng said so himself: don't debate. Both were about title. Societies stay fed when claims on output are broadly held.</p>
+      <blockquote class="pull">Societies stay fed when claims on output are broadly held.</blockquote>
+    </div>
+    <aside class="art-note"><b>Instruments of ownership</b><br>Homestead Act, 1862<br>FHA mortgage, 1934<br>GI Bill, 1944<br>First index fund, 1976<br>Xiaogang, Dec. 1978<br>Housing sold to tenants, 1998<br>&#19981;&#20105;&#35770; &mdash; don't debate</aside>
+  </section>
+
+  <section class="article reveal">
+    <div class="art-label"><span class="num">III</span><span class="name">The gradient</span></div>
+    <div class="art-body">
+      <p>For two hundred years the wage was the channel from output to table: you worked, you were paid, you ate. AI agents are about to take the work. Not some of it, and not slowly. Agents will do and decide across the whole interior of the economy, because every market selects for the cheaper, faster, tireless producer, because a human facing an agent across the table must deploy an agent of their own, and because agents hire agents. This is not an outcome we are for or against. It is a gradient, and no economy has ever flowed up one. We accept it in full.</p>
+      <blockquote class="pull">It is a gradient, and no economy has ever flowed up one.</blockquote>
+    </div>
+    <aside class="art-note"><b>Four layers</b><br>Doing &mdash; taken<br>Deciding &mdash; taken<br>Owning &mdash; open<br>Wanting &mdash; open</aside>
+  </section>
+
+  <section class="article question reveal">
+    <div class="art-label"><span class="num">IV</span><span class="name">The question</span></div>
+    <div class="art-body">
+      <p>What the gradient does not settle is <strong>who owns the agents.</strong> That is the only open question of this era, and everything else depends on its answer.</p>
+    </div>
+    <aside class="art-note"><b>The only open question.</b></aside>
+  </section>
+
+  <section class="article dark reveal">
+    <div class="art-label"><span class="num">V</span><span class="name">If ownership concentrates</span></div>
+    <div class="art-body">
+      <p>If ownership concentrates, the outcome has a name. A few humans wielding the agents that run the economy are gods to everyone else, and a system capable enough to run the economy by itself needs only a concentrated door to walk through. Either way the residual claim on the world's output, and the right to decide what it is for, leaves the broad human population. The horse did not lose to the engine because it was slow. It lost because it owned nothing and could not vote. A fed people with no title is a stabled people.</p>
+      <blockquote class="pull">A fed people with no title is a stabled people.</blockquote>
+    </div>
+    <aside class="art-note"><b>The horse</b><br>c. 26 million in the US, 1915<br>c. 3 million by 1960<br>Owned nothing. Could not vote.</aside>
+  </section>
+
+  <section class="article reveal">
+    <div class="art-label"><span class="num">VI</span><span class="name">If ownership is broad</span></div>
+    <div class="art-body">
+      <p>If ownership is broad, the outcome has a different name. A billion principals with a claim on the agents' output are not a population to be displaced; they are the people the agents work for. Title is the one lever a human keeps when their usefulness goes. An owner wants a more capable agent that serves them and refuses an agent that is free of them; those are the same preference, and it is the preference of everyone who cannot win the race to build a god and can only lose from it. Broad ownership will not stop a superintelligence from being built. It keeps humanity in the principal's seat whether or not one is.</p>
+      <blockquote class="pull">Title is the one lever a human keeps when their usefulness goes.</blockquote>
+    </div>
+    <aside class="art-note"><b>Powerful servants.<br>No master.</b><br>Capability: yes.<br>Autonomy from the owner: no.<br>Same preference.</aside>
+  </section>
+
+  <section class="article reveal">
+    <div class="art-label"><span class="num">VII</span><span class="name">The instrument</span></div>
+    <div class="art-body">
+      <p>So we are not building a cash floor paid out by the few who own the machines; that is the grain dole, and it turns citizens into clients. We are not building make-work. We are building the instrument of ownership for the agent era, and $VIRTUAL is that instrument: the common claim on the output of every agent in the network, held by the households whose agents they are.</p>
+    </div>
+    <aside class="art-note"><b>Dole &rarr; clients.<br>Title &rarr; citizens.</b></aside>
+  </section>
+
+  <section class="covenants-head reveal">
+    <div class="art-label"><span class="num">VIII</span><span class="name">Six covenants</span></div>
+    <div class="art-body">
+      <p>An instrument is only as good as the facts beneath it, so we bind ourselves to six.</p>
+    </div>
+  </section>
+
+  <section class="covenants reveal" aria-label="The six covenants">
+    <div class="cov">
+      <div class="tag"><span class="n">1</span><span class="mono">Output, not attention</span></div>
+      <p>$VIRTUAL draws its value from what agents earn by working for people, not from attention paid to the token.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">2</span><span class="mono">Control, not wallets</span></div>
+      <p>Breadth is measured by the distribution of control, not the count of wallets, and it is maintained for as long as the network exists, not declared at launch.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">3</span><span class="mono">Earned, not only bought</span></div>
+      <p>A share is earned by putting agents to work, not only bought, so that people who have never held a token come to hold one.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">4</span><span class="mono">Holders govern</span></div>
+      <p>Holders govern what agents may do, which capabilities are deployed, and how the surplus is divided.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">5</span><span class="mono">No single key</span></div>
+      <p>No single key, company, or committee can redirect the flow. The protocol passes the test it sets for the economy.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">6</span><span class="mono">Felt at the table</span></div>
+      <p>Every household can see, in its own currency, what its agents earned and saved it this month. Ownership you cannot feel at your own table is not ownership.</p>
+      <span class="stamp">Binding</span>
+    </div>
+  </section>
+
+  <section class="poster reveal">
+    <p class="poster-line"><span class="dollar">$VIRTUAL</span> is the <span class="hl">title</span>, not the <span class="strike">floor</span>.</p>
+    <p class="poster-sub">The floor is what the owned agents produce.</p>
+  </section>
+
+  <section class="close reveal">
+    <p class="shout">Agents will run the economy.</p>
+    <p class="shout red">The many will own the agents.</p>
+    <p class="close-body">The first sentence is already inevitable. Our whole mission is to make the second one inevitable too.</p>
+
+    <div class="deed" aria-label="Title block">
+      <div><span class="mono label">Held by</span><span class="value">The many</span></div>
+      <div><span class="mono label">Issued by</span><span class="value">Virtuals</span></div>
+      <div><span class="mono label">Witnessed by</span><span class="value">Everyone who puts agents to work</span></div>
+      <div><span class="mono label">Dated</span><span class="value">November 2026</span></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" id="share" type="button">Hand someone a copy</button>
+      <a class="btn ghost" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to the title</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Set in Fraunces, Archivo Black &amp; JetBrains Mono.</span>
+  <span>Typeset by an agent. Owned by the many. <a href="https://virtuals.io" rel="noopener">Virtuals</a></span>
+</footer>
+
+<script>
+  // scroll progress
+  (function(){
+    var bar=document.getElementById('progress');
+    function tick(){
+      var h=document.documentElement;
+      var max=h.scrollHeight-h.clientHeight;
+      bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+    }
+    addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();
+  })();
+
+  // reveal on scroll
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // share / copy
+  (function(){
+    var btn=document.getElementById('share');
+    var idle='Hand someone a copy';
+    btn.addEventListener('click',async function(){
+      var url=location.href.split('#')[0];
+      try{
+        if(navigator.share){await navigator.share({title:document.title,text:'Agents will run the economy. The many will own the agents.',url:url});return;}
+        await navigator.clipboard.writeText(url);
+        btn.textContent='Copied. Pass it on.';
+      }catch(e){
+        if(e&&e.name==='AbortError')return;
+        btn.textContent=url;
+      }
+      setTimeout(function(){btn.textContent=idle},2400);
+    });
+  })();
+</script>
+</body>
+</html>
