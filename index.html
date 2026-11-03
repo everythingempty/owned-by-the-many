@@ -141,12 +141,53 @@
   .dark ::selection{background:var(--paper);color:var(--ink)}
   .dark + .article{border-top:2px solid var(--ink)}
 
-  /* ---------- covenants ---------- */
-  .covenants-head{padding:clamp(3.5rem,8vw,7rem) var(--gutter) 2.5rem;border-top:1px solid var(--rule);
+  /* ---------- sub-heads (five roads, covenants) ---------- */
+  .covenants-head,.roads-head{padding:clamp(3.5rem,8vw,7rem) var(--gutter) 2.5rem;border-top:1px solid var(--rule);
     display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);column-gap:clamp(1.5rem,4vw,4rem)}
-  .covenants-head .art-label{grid-column:1}
-  .covenants-head .art-body{grid-column:2}
-  @media (max-width:900px){.covenants-head{grid-template-columns:1fr}.covenants-head .art-body{grid-column:1}.covenants-head .art-label{flex-direction:row;align-items:baseline;gap:1rem}}
+  .covenants-head .art-label,.roads-head .art-label{grid-column:1}
+  .covenants-head .art-body,.roads-head .art-body{grid-column:2}
+  @media (max-width:900px){.covenants-head,.roads-head{grid-template-columns:1fr;row-gap:1.25rem}.covenants-head .art-body,.roads-head .art-body{grid-column:1}.covenants-head .art-label,.roads-head .art-label{flex-direction:row;align-items:baseline;gap:1rem}}
+
+  /* ---------- five roads ---------- */
+  .roads{margin:0 var(--gutter) clamp(3.5rem,8vw,7rem);border-top:2px solid var(--ink)}
+  .road{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);
+    column-gap:clamp(1.5rem,4vw,4rem);row-gap:.9rem;
+    padding:clamp(1.9rem,3.5vw,2.9rem) 0;border-bottom:1px solid var(--rule);
+  }
+  .road:last-child{border-bottom:2px solid var(--ink)}
+  .road-tag{grid-column:1;display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
+  .road-tag .ord{font-family:var(--shout);font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;letter-spacing:-.02em;color:var(--ink-2)}
+  .road-main{grid-column:2}
+  .road-title{margin:0 0 .8rem;font-weight:500;font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.08;letter-spacing:-.02em;
+    font-variation-settings:'opsz' 72,'SOFT' 40,'WONK' 1;text-wrap:balance}
+  .road-main p{margin:0}
+  .road-note{grid-column:3;align-self:start;font-family:var(--mono);font-size:.72rem;line-height:1.7;letter-spacing:.04em;color:var(--ink-2);
+    border-left:2px solid var(--red);padding-left:.9rem;max-width:26ch}
+  .road-note b{color:var(--red);font-weight:700}
+  .verdict{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
+    border:2px solid var(--red);color:var(--red);padding:.24rem .55rem;transform:rotate(-3deg) scale(1.6);opacity:0;
+    transition:opacity .22s ease .55s,transform .3s cubic-bezier(.2,.9,.3,1.35) .55s}
+  .road.in .verdict{opacity:1;transform:rotate(-3deg) scale(1)}
+  .void .road-title{color:var(--ink-2);text-decoration:line-through;text-decoration-color:transparent;text-decoration-thickness:.09em;
+    text-decoration-skip-ink:none;transition:text-decoration-color .25s ease .75s}
+  .void.in .road-title{text-decoration-color:var(--red)}
+  .void .road-main p{color:var(--ink-2)}
+  .holds .ord{color:var(--red)}
+  .holds .road-title{color:var(--red);font-style:italic;font-variation-settings:'opsz' 72,'SOFT' 100,'WONK' 1}
+  .holds .verdict{background:var(--red);color:var(--paper)}
+  @media (max-width:900px){
+    .road{grid-template-columns:1fr;row-gap:.9rem}
+    .road-tag,.road-main,.road-note{grid-column:1}
+    .road-tag{flex-direction:row;align-items:center;gap:1rem}
+    .road-note{max-width:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .verdict{opacity:1;transform:rotate(-3deg);transition:none}
+    .void .road-title{text-decoration-color:var(--red);transition:none}
+  }
+
+  /* ---------- covenants ---------- */
   .covenants{
     margin:0 var(--gutter) clamp(3.5rem,8vw,7rem);
     display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
@@ -245,7 +286,7 @@
   <div class="deed-row mono">
     <span>Title No. 0001</span>
     <span class="red">The agent era</span>
-    <span>Draft 01 &middot; Nov 2026</span>
+    <span>Draft 02 &middot; Nov 2026</span>
   </div>
   <h1 class="headline">The agent economy, <em>owned by the many.</em></h1>
   <p class="kicker"><span class="mono">A manifesto</span><span class="for">for Virtuals</span></p>
@@ -316,8 +357,63 @@
     <aside class="art-note"><b>Four layers</b><br>Doing &mdash; taken<br>Deciding &mdash; taken<br>Owning &mdash; open<br>Wanting &mdash; open</aside>
   </section>
 
+  <section class="roads-head reveal">
+    <div class="art-label"><span class="num">IV</span><span class="name">Five roads</span></div>
+    <div class="art-body">
+      <p>When the channel from output to table breaks, a society has five roads, and four of them have been walked before under other names. We examined each the way a clerk examines a title: does it put a claim in the hands of the many, and does the claim hold?</p>
+    </div>
+    <aside class="art-note"><b>Five roads.</b><br>Four walked before,<br>under other names.<br>One holds.</aside>
+  </section>
+
+  <section class="roads" aria-label="The five roads">
+    <article class="road void reveal">
+      <div class="road-tag"><span class="ord">01</span><span class="verdict">Void</span></div>
+      <div class="road-main">
+        <h3 class="road-title">Pay everyone a floor.</h3>
+        <p>Cash to every citizen, no strings, funded by taxing the machines. It is the obvious answer and the oldest one: Rome did it with grain. The dole kept the city quiet for five centuries, and it did so by turning citizens into clients of whoever filled the granary. A floor is a flow, not a stake. Whoever pays it holds the power, and if the agents are owned by a few, the few become the sovereign and everyone else their dependents. A recipient cannot defend a transfer; it gets cut in a quiet session by people who never needed it. This is not a remedy for concentration. It is concentration with a dividend attached.</p>
+      </div>
+      <aside class="road-note"><b>The grain dole</b><br>Rome, cura annonae<br>A flow, not a stake<br>Client, not citizen</aside>
+    </article>
+
+    <article class="road void reveal">
+      <div class="road-tag"><span class="ord">02</span><span class="verdict">Void</span></div>
+      <div class="road-main">
+        <h3 class="road-title">Make living cheap.</h3>
+        <p>Let the same agents that take the work drive the price of food, power, and shelter toward zero, until a floor is hardly needed. We want this and will help build it. But agents cannot make more land, which is where the cost of shelter hides, and cheap is not the same as safe. The horse ate cheaply right up to the day it was not needed, and after that day it did not eat at all. Making bread cheap does not settle whose bread it is.</p>
+      </div>
+      <aside class="road-note"><b>Good hay</b><br>The horse, 1915 &ndash; 1960<br>Agents cannot make land<br>Necessary. Not sufficient.</aside>
+    </article>
+
+    <article class="road void reveal">
+      <div class="road-tag"><span class="ord">03</span><span class="verdict">Void</span></div>
+      <div class="road-main">
+        <h3 class="road-title">Keep humans in the work.</h3>
+        <p>Guarantee jobs, subsidize wages, share the hours, reserve tasks for people by law. China ran this policy for forty years and called it the iron rice bowl. It kept state workers at their posts until the enterprises rotted beneath them, and then some thirty million were laid off anyway, later and harder. You cannot legislate usefulness into a gradient. Make-work is the dole with a commute.</p>
+      </div>
+      <aside class="road-note"><b>&#38081;&#39277;&#30871;</b><br>The iron rice bowl<br>c. 30m laid off anyway, 1998 &ndash; 2002<br>Fights the gradient</aside>
+    </article>
+
+    <article class="road void reveal">
+      <div class="road-tag"><span class="ord">04</span><span class="verdict">Void</span></div>
+      <div class="road-main">
+        <h3 class="road-title">Fence the owners.</h3>
+        <p>Antitrust on compute, liability on every agent, tax on the rents, a regulator with teeth. Every piece is necessary and we will stand behind all of it. But a fence around concentrated power is kept by the people inside it. The regulator learns the industry from the industry, is funded by what it taxes, and hires from what it watches; the fence grows a gate, the gate grows a key, and the key ends up with whoever it was meant to keep out. A system owned by the many can be governed. A system owned by the few can only be petitioned.</p>
+      </div>
+      <aside class="road-note"><b>Capture</b><br>Stigler, 1971<br>The gate grows a key<br>Governed vs. petitioned</aside>
+    </article>
+
+    <article class="road holds reveal">
+      <div class="road-tag"><span class="ord">05</span><span class="verdict">Holds</span></div>
+      <div class="road-main">
+        <h3 class="road-title">Give people the title.</h3>
+        <p>Not a share of what the owners choose to hand down, but a claim on the agents themselves. It is the only road that does three things at once. It is an incentive: owners tend what they own, so the agents get better at serving the people who hold them. It is a political fact: a recipient cannot defend a transfer, but an owner defends a title, which is why welfare rolls are trimmed in silence and nobody touches the Alaska dividend without a fight. And it is standing: a person who directs their own agents is useful in the one sense that survives the gradient. The other four roads are not wrong. They are what you build on top of this one. A floor is safest when the owners pay it to themselves. Cheap living is a gift when the people who receive it also hold the deed. Work survives as the direction of what you own. A fence holds when the people inside it are everyone. Ownership is the keystone; pull it, and the other four fall into the hands of whoever owns the machines.</p>
+      </div>
+      <aside class="road-note"><b>Owner, not claimant</b><br>Xiaogang, 1978<br>Alaska PFD, 1982<br>Incentive &middot; Political fact &middot; Standing<br>The keystone</aside>
+    </article>
+  </section>
+
   <section class="article question reveal">
-    <div class="art-label"><span class="num">IV</span><span class="name">The question</span></div>
+    <div class="art-label"><span class="num">V</span><span class="name">The question</span></div>
     <div class="art-body">
       <p>What the gradient does not settle is <strong>who owns the agents.</strong> That is the only open question of this era, and everything else depends on its answer.</p>
     </div>
@@ -325,7 +421,7 @@
   </section>
 
   <section class="article dark reveal">
-    <div class="art-label"><span class="num">V</span><span class="name">If ownership concentrates</span></div>
+    <div class="art-label"><span class="num">VI</span><span class="name">If ownership concentrates</span></div>
     <div class="art-body">
       <p>If ownership concentrates, the outcome has a name. A few humans wielding the agents that run the economy are gods to everyone else, and a system capable enough to run the economy by itself needs only a concentrated door to walk through. Either way the residual claim on the world's output, and the right to decide what it is for, leaves the broad human population. The horse did not lose to the engine because it was slow. It lost because it owned nothing and could not vote. A fed people with no title is a stabled people.</p>
       <blockquote class="pull">A fed people with no title is a stabled people.</blockquote>
@@ -334,7 +430,7 @@
   </section>
 
   <section class="article reveal">
-    <div class="art-label"><span class="num">VI</span><span class="name">If ownership is broad</span></div>
+    <div class="art-label"><span class="num">VII</span><span class="name">If ownership is broad</span></div>
     <div class="art-body">
       <p>If ownership is broad, the outcome has a different name. A billion principals with a claim on the agents' output are not a population to be displaced; they are the people the agents work for. Title is the one lever a human keeps when their usefulness goes. An owner wants a more capable agent that serves them and refuses an agent that is free of them; those are the same preference, and it is the preference of everyone who cannot win the race to build a god and can only lose from it. Broad ownership will not stop a superintelligence from being built. It keeps humanity in the principal's seat whether or not one is.</p>
       <blockquote class="pull">Title is the one lever a human keeps when their usefulness goes.</blockquote>
@@ -343,15 +439,15 @@
   </section>
 
   <section class="article reveal">
-    <div class="art-label"><span class="num">VII</span><span class="name">The instrument</span></div>
+    <div class="art-label"><span class="num">VIII</span><span class="name">The instrument</span></div>
     <div class="art-body">
-      <p>So we are not building a cash floor paid out by the few who own the machines; that is the grain dole, and it turns citizens into clients. We are not building make-work. We are building the instrument of ownership for the agent era, and $VIRTUAL is that instrument: the common claim on the output of every agent in the network, held by the households whose agents they are.</p>
+      <p>So we are not building a dole, a discount, a job, or a fence. We are building the instrument of ownership for the agent era, and $VIRTUAL is that instrument: the common claim on the output of every agent in the network, held by the households whose agents they are.</p>
     </div>
     <aside class="art-note"><b>Dole &rarr; clients.<br>Title &rarr; citizens.</b></aside>
   </section>
 
   <section class="covenants-head reveal">
-    <div class="art-label"><span class="num">VIII</span><span class="name">Six covenants</span></div>
+    <div class="art-label"><span class="num">IX</span><span class="name">Six covenants</span></div>
     <div class="art-body">
       <p>An instrument is only as good as the facts beneath it, so we bind ourselves to six.</p>
     </div>
