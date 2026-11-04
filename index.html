@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The agent economy, owned by the many</title>
-<meta name="description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals: title, not floor.">
+<meta name="description" content="Given can be taken back. Owned can't. Agents will run the economy; the many will own the agents. A manifesto for Virtuals.">
 <meta name="theme-color" content="#C3271B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The agent economy, owned by the many">
-<meta property="og:description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals on why broad ownership of agents is how humanity stays in the principal's seat.">
+<meta property="og:description" content="Without a wage there are two ways your share reaches your table: someone gives it to you, or you own something that earns it. Given can be taken back. Owned can't. A manifesto for Virtuals.">
 <meta property="og:site_name" content="Virtuals">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The agent economy, owned by the many">
-<meta name="twitter:description" content="Agents will run the economy. The many will own the agents. A manifesto for Virtuals.">
+<meta name="twitter:description" content="Given can be taken back. Owned can't. Own the agents. A manifesto for Virtuals.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23C3271B'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='40' fill='%23F4ECDC'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,7 +83,7 @@
   .ticker{background:var(--red);color:var(--paper);overflow:hidden;white-space:nowrap;
     font-family:var(--shout);text-transform:uppercase;font-size:clamp(1rem,2.2vw,1.5rem);letter-spacing:.02em;
     padding:.75rem 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-  .ticker-track{display:inline-flex;width:max-content;animation:tick 34s linear infinite}
+  .ticker-track{display:inline-flex;width:max-content;animation:tick 44s linear infinite}
   .ticker-half{display:inline-flex;align-items:center;gap:2.2rem;padding-right:2.2rem}
   .ticker .star{font-family:var(--serif);font-weight:300}
   @keyframes tick{to{transform:translateX(-50%)}}
@@ -124,7 +124,7 @@
     .art-note{position:static;max-width:none;margin-top:.5rem}
   }
 
-  /* the open question: one big line */
+  /* the fork: one big line */
   .question .art-body p{
     font-size:clamp(1.6rem,3.6vw,3.1rem);line-height:1.1;letter-spacing:-.02em;font-weight:500;
     font-variation-settings:'opsz' 96,'SOFT' 30,'WONK' 1;text-wrap:balance;
@@ -141,15 +141,15 @@
   .dark ::selection{background:var(--paper);color:var(--ink)}
   .dark + .article{border-top:2px solid var(--ink)}
 
-  /* ---------- sub-heads (five roads, covenants) ---------- */
+  /* ---------- sub-heads (given ledger, covenants) ---------- */
   .covenants-head,.roads-head{padding:clamp(3.5rem,8vw,7rem) var(--gutter) 2.5rem;border-top:1px solid var(--rule);
     display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);column-gap:clamp(1.5rem,4vw,4rem)}
   .covenants-head .art-label,.roads-head .art-label{grid-column:1}
   .covenants-head .art-body,.roads-head .art-body{grid-column:2}
   @media (max-width:900px){.covenants-head,.roads-head{grid-template-columns:1fr;row-gap:1.25rem}.covenants-head .art-body,.roads-head .art-body{grid-column:1}.covenants-head .art-label,.roads-head .art-label{flex-direction:row;align-items:baseline;gap:1rem}}
 
-  /* ---------- five roads ---------- */
-  .roads{margin:0 var(--gutter) clamp(3.5rem,8vw,7rem);border-top:2px solid var(--ink)}
+  /* ---------- the given ledger ---------- */
+  .roads{margin:0 var(--gutter) clamp(2.5rem,6vw,5rem);border-top:2px solid var(--ink)}
   .road{
     display:grid;grid-template-columns:minmax(0,1fr) minmax(0,62ch) minmax(0,1fr);
     column-gap:clamp(1.5rem,4vw,4rem);row-gap:.9rem;
@@ -169,13 +169,11 @@
     border:2px solid var(--red);color:var(--red);padding:.24rem .55rem;transform:rotate(-3deg) scale(1.6);opacity:0;
     transition:opacity .22s ease .55s,transform .3s cubic-bezier(.2,.9,.3,1.35) .55s}
   .road.in .verdict{opacity:1;transform:rotate(-3deg) scale(1)}
-  .void .road-title{color:var(--ink-2);text-decoration:line-through;text-decoration-color:transparent;text-decoration-thickness:.09em;
+  /* a given road's title is struck: it was handed over, and taken back */
+  .given .road-title{color:var(--ink-2);text-decoration:line-through;text-decoration-color:transparent;text-decoration-thickness:.09em;
     text-decoration-skip-ink:none;transition:text-decoration-color .25s ease .75s}
-  .void.in .road-title{text-decoration-color:var(--red)}
-  .void .road-main p{color:var(--ink-2)}
-  .holds .ord{color:var(--red)}
-  .holds .road-title{color:var(--red);font-style:italic;font-variation-settings:'opsz' 72,'SOFT' 100,'WONK' 1}
-  .holds .verdict{background:var(--red);color:var(--paper)}
+  .given.in .road-title{text-decoration-color:var(--red)}
+  .given .road-main p{color:var(--ink-2)}
   @media (max-width:900px){
     .road{grid-template-columns:1fr;row-gap:.9rem}
     .road-tag,.road-main,.road-note{grid-column:1}
@@ -184,36 +182,36 @@
   }
   @media (prefers-reduced-motion:reduce){
     .verdict{opacity:1;transform:rotate(-3deg);transition:none}
-    .void .road-title{text-decoration-color:var(--red);transition:none}
+    .given .road-title{text-decoration-color:var(--red);transition:none}
   }
 
   /* ---------- covenants ---------- */
   .covenants{
     margin:0 var(--gutter) clamp(3.5rem,8vw,7rem);
-    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
     background:var(--rule);border:1px solid var(--rule);
   }
   .cov{
-    background:var(--paper);padding:clamp(1.4rem,2.5vw,2.2rem);min-height:clamp(15rem,26vw,22rem);
-    display:flex;flex-direction:column;justify-content:space-between;gap:2rem;position:relative;
+    background:var(--paper);padding:clamp(1.4rem,2.2vw,2rem);min-height:clamp(13rem,21vw,19rem);
+    display:flex;flex-direction:column;justify-content:space-between;gap:1.75rem;position:relative;
     transition:background .35s ease,color .35s ease;cursor:default;
   }
   .cov:hover{background:var(--ink);color:var(--paper)}
-  .cov .tag{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-  .cov .tag .mono{opacity:.75}
+  .cov .tag{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
+  .cov .tag .mono{opacity:.75;font-size:.66rem;line-height:1.5}
   .cov .n{
-    font-family:var(--shout);font-size:clamp(3.4rem,7vw,6.5rem);line-height:.85;letter-spacing:-.03em;
+    font-family:var(--shout);font-size:clamp(3rem,5.2vw,5rem);line-height:.85;letter-spacing:-.03em;
     color:transparent;-webkit-text-stroke:2px var(--red);transition:color .35s ease;
   }
   .cov:hover .n{color:var(--red)}
-  .cov p{margin:0;font-size:clamp(1.02rem,.95rem + .3vw,1.2rem);line-height:1.42;font-variation-settings:'opsz' 14}
+  .cov p{margin:0;font-size:clamp(1rem,.92rem + .28vw,1.15rem);line-height:1.42;font-variation-settings:'opsz' 14}
   .cov .stamp{
     position:absolute;right:1rem;top:1rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
     border:2px solid var(--red);color:var(--red);padding:.25rem .5rem;transform:rotate(6deg);opacity:0;
     transition:opacity .3s ease,transform .3s ease;
   }
   .cov:hover .stamp{opacity:1;transform:rotate(-4deg)}
-  @media (max-width:1000px){.covenants{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:1100px){.covenants{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:640px){.covenants{grid-template-columns:1fr}.cov{min-height:0}}
 
   /* ---------- poster ---------- */
@@ -286,7 +284,7 @@
   <div class="deed-row mono">
     <span>Title No. 0001</span>
     <span class="red">The agent era</span>
-    <span>Draft 02 &middot; Nov 2026</span>
+    <span>Draft 03 &middot; Nov 2026</span>
   </div>
   <h1 class="headline">The agent economy, <em>owned by the many.</em></h1>
   <p class="kicker"><span class="mono">A manifesto</span><span class="for">for Virtuals</span></p>
@@ -313,18 +311,22 @@
     <div class="ticker-half">
       <span>Agents will run the economy</span><span class="star">&#10022;</span>
       <span>The many will own the agents</span><span class="star">&#10022;</span>
-      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Given can be taken back</span><span class="star">&#10022;</span>
+      <span>Owned can't</span><span class="star">&#10022;</span>
       <span>Agents will run the economy</span><span class="star">&#10022;</span>
       <span>The many will own the agents</span><span class="star">&#10022;</span>
-      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Given can be taken back</span><span class="star">&#10022;</span>
+      <span>Owned can't</span><span class="star">&#10022;</span>
     </div>
     <div class="ticker-half">
       <span>Agents will run the economy</span><span class="star">&#10022;</span>
       <span>The many will own the agents</span><span class="star">&#10022;</span>
-      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Given can be taken back</span><span class="star">&#10022;</span>
+      <span>Owned can't</span><span class="star">&#10022;</span>
       <span>Agents will run the economy</span><span class="star">&#10022;</span>
       <span>The many will own the agents</span><span class="star">&#10022;</span>
-      <span>Title, not floor</span><span class="star">&#10022;</span>
+      <span>Given can be taken back</span><span class="star">&#10022;</span>
+      <span>Owned can't</span><span class="star">&#10022;</span>
     </div>
   </div>
 </div>
@@ -340,148 +342,159 @@
   </section>
 
   <section class="article reveal">
-    <div class="art-label"><span class="num">II</span><span class="name">Title</span></div>
+    <div class="art-label"><span class="num">II</span><span class="name">The wage</span></div>
     <div class="art-body">
-      <p>The two great feeding successes of the modern age answered that question the same way. America kept inventing instruments that let ordinary people own the productive asset of the day: the joint-stock company put railroads in the hands of clerks, the Homestead Act gave land to anyone who would work it, the thirty-year mortgage and the GI Bill gave a generation its houses, and the index fund let a schoolteacher own the whole economy. China's reform began with eighteen farmers at Xiaogang keeping the surplus of their own land, and much of its stability rests on 1998, when the state sold its urban housing to the people living in it. In both countries the calm decades were the broad-ownership decades and the angry ones were the decades of concentration. Neither success was about capitalism or socialism; Deng said so himself: don't debate. Both were about title. Societies stay fed when claims on output are broadly held.</p>
-      <blockquote class="pull">Societies stay fed when claims on output are broadly held.</blockquote>
+      <p>For two hundred years the wage was the channel from output to table. You worked, you were paid, you ate. And because the economy needed your hands, it needed your consent too: the vote widened as the factories did, and the floor rose whenever labor could walk out. Fed, housed and useful all came through one pipe, and the pipe ran on being needed.</p>
     </div>
-    <aside class="art-note"><b>Instruments of ownership</b><br>Homestead Act, 1862<br>FHA mortgage, 1934<br>GI Bill, 1944<br>First index fund, 1976<br>Xiaogang, Dec. 1978<br>Housing sold to tenants, 1998<br>&#19981;&#20105;&#35770; &mdash; don't debate</aside>
+    <aside class="art-note"><b>One pipe.</b><br>Work &rarr; paid &rarr; eat<br>Needed &rarr; heard</aside>
   </section>
 
   <section class="article reveal">
     <div class="art-label"><span class="num">III</span><span class="name">The gradient</span></div>
     <div class="art-body">
-      <p>For two hundred years the wage was the channel from output to table: you worked, you were paid, you ate. AI agents are about to take the work. Not some of it, and not slowly. Agents will do and decide across the whole interior of the economy, because every market selects for the cheaper, faster, tireless producer, because a human facing an agent across the table must deploy an agent of their own, and because agents hire agents. This is not an outcome we are for or against. It is a gradient, and no economy has ever flowed up one. We accept it in full.</p>
+      <p>Agents are about to take the work. Not some of it, and not slowly. They will do and decide across the whole interior of the economy, because every market selects for the cheaper, faster, tireless producer, because a human facing an agent across the table must deploy an agent of their own, and because agents hire agents. This is not an outcome we are for or against. It is a gradient, and no economy has ever flowed up one. We accept it in full. The pipe does not survive it.</p>
       <blockquote class="pull">It is a gradient, and no economy has ever flowed up one.</blockquote>
     </div>
     <aside class="art-note"><b>Four layers</b><br>Doing &mdash; taken<br>Deciding &mdash; taken<br>Owning &mdash; open<br>Wanting &mdash; open</aside>
   </section>
 
-  <section class="roads-head reveal">
-    <div class="art-label"><span class="num">IV</span><span class="name">Five roads</span></div>
+  <section class="article question reveal">
+    <div class="art-label"><span class="num">IV</span><span class="name">Two ways</span></div>
     <div class="art-body">
-      <p>When the channel from output to table breaks, a society has five roads, and four of them have been walked before under other names. We examined each the way a clerk examines a title: does it put a claim in the hands of the many, and does the claim hold?</p>
+      <p>Without a wage, how does your share reach your table? There are two ways, and only two. <strong>Someone gives it to you. Or you own something that earns it.</strong></p>
     </div>
-    <aside class="art-note"><b>Five roads.</b><br>Four walked before,<br>under other names.<br>One holds.</aside>
+    <aside class="art-note"><b>Given, or owned.</b><br>Every road is one or the other.</aside>
   </section>
 
-  <section class="roads" aria-label="The five roads">
-    <article class="road void reveal">
-      <div class="road-tag"><span class="ord">01</span><span class="verdict">Void</span></div>
+  <section class="roads-head reveal">
+    <div class="art-label"><span class="num">V</span><span class="name">Given</span></div>
+    <div class="art-body">
+      <p>Four of the roads leave the asset where it is and hand you something from it: a check, a lower price, a protected job, a rule on the owner. Each feeds. None puts anything in your name, and what is not in your name can be taken back, by people who need you a little less every year.</p>
+    </div>
+    <aside class="art-note"><b>Not in your name.</b><br>Check &middot; price &middot; job &middot; rule<br>Each feeds. Each can be withdrawn.</aside>
+  </section>
+
+  <section class="roads" aria-label="The four given roads">
+    <article class="road given reveal">
+      <div class="road-tag"><span class="ord">01</span><span class="verdict">Given</span></div>
       <div class="road-main">
-        <h3 class="road-title">Pay everyone a floor.</h3>
-        <p>Cash to every citizen, no strings, funded by taxing the machines. It is the obvious answer and the oldest one: Rome did it with grain. The dole kept the city quiet for five centuries, and it did so by turning citizens into clients of whoever filled the granary. A floor is a flow, not a stake. Whoever pays it holds the power, and if the agents are owned by a few, the few become the sovereign and everyone else their dependents. A recipient cannot defend a transfer; it gets cut in a quiet session by people who never needed it. This is not a remedy for concentration. It is concentration with a dividend attached.</p>
+        <h3 class="road-title">A check for everyone.</h3>
+        <p>Cash to every citizen, no conditions, funded by taxing the machines. It is the obvious answer, and in every trial people spent it on food and rent and kept working. But a check from a budget is as safe as the next vote. America's cash program for poor families has sat at the same dollar figure since 1996 and has lost two-fifths of its value in silence. In 2016 Alaska's governor halved the state dividend with a veto. He could not touch the fund it is paid from, because Alaskans own the fund. The check was given. The fund is owned.</p>
       </div>
-      <aside class="road-note"><b>The grain dole</b><br>Rome, cura annonae<br>A flow, not a stake<br>Client, not citizen</aside>
+      <aside class="road-note"><b>The check and the fund</b><br>TANF: frozen since 1996<br>Alaska PFD: halved by veto, 2016<br>The fund: untouched</aside>
     </article>
 
-    <article class="road void reveal">
-      <div class="road-tag"><span class="ord">02</span><span class="verdict">Void</span></div>
+    <article class="road given reveal">
+      <div class="road-tag"><span class="ord">02</span><span class="verdict">Given</span></div>
       <div class="road-main">
         <h3 class="road-title">Make living cheap.</h3>
-        <p>Let the same agents that take the work drive the price of food, power, and shelter toward zero, until a floor is hardly needed. We want this and will help build it. But agents cannot make more land, which is where the cost of shelter hides, and cheap is not the same as safe. The horse ate cheaply right up to the day it was not needed, and after that day it did not eat at all. Making bread cheap does not settle whose bread it is.</p>
+        <p>Let the same agents that take the work drive the price of food, power and shelter toward zero. We want this and will help build it; it is how most poverty has actually ended. But agents cannot make more land, which is where the cost of shelter hides, and a low price is not a claim. The horse was cheaply fed, right up to the day it was not needed.</p>
       </div>
-      <aside class="road-note"><b>Good hay</b><br>The horse, 1915 &ndash; 1960<br>Agents cannot make land<br>Necessary. Not sufficient.</aside>
+      <aside class="road-note"><b>A price, not a claim</b><br>Agents cannot make land<br>The horse, 1915 &ndash; 1960</aside>
     </article>
 
-    <article class="road void reveal">
-      <div class="road-tag"><span class="ord">03</span><span class="verdict">Void</span></div>
+    <article class="road given reveal">
+      <div class="road-tag"><span class="ord">03</span><span class="verdict">Given</span></div>
       <div class="road-main">
-        <h3 class="road-title">Keep humans in the work.</h3>
-        <p>Guarantee jobs, subsidize wages, share the hours, reserve tasks for people by law. China ran this policy for forty years and called it the iron rice bowl. It kept state workers at their posts until the enterprises rotted beneath them, and then some thirty million were laid off anyway, later and harder. You cannot legislate usefulness into a gradient. Make-work is the dole with a commute.</p>
+        <h3 class="road-title">Keep people in the work.</h3>
+        <p>Guarantee jobs, subsidize wages, share the hours. This carried every earlier transition, and it gives what a check cannot: a reason to get up, people to see, a place to stand. But a job that exists because a law says so lasts exactly as long as the law, and a worker in a protected post still owns nothing. Work is the dignity layer. It is not the deed.</p>
       </div>
-      <aside class="road-note"><b>&#38081;&#39277;&#30871;</b><br>The iron rice bowl<br>c. 30m laid off anyway, 1998 &ndash; 2002<br>Fights the gradient</aside>
+      <aside class="road-note"><b>Dignity, not deed</b><br>60 hours &rarr; 40, 1900 &ndash; 1940<br>WPA &middot; Kurzarbeit &middot; MGNREGA<br>Lasts as long as the law</aside>
     </article>
 
-    <article class="road void reveal">
-      <div class="road-tag"><span class="ord">04</span><span class="verdict">Void</span></div>
+    <article class="road given reveal">
+      <div class="road-tag"><span class="ord">04</span><span class="verdict">Given</span></div>
       <div class="road-main">
         <h3 class="road-title">Fence the owners.</h3>
-        <p>Antitrust on compute, liability on every agent, tax on the rents, a regulator with teeth. Every piece is necessary and we will stand behind all of it. But a fence around concentrated power is kept by the people inside it. The regulator learns the industry from the industry, is funded by what it taxes, and hires from what it watches; the fence grows a gate, the gate grows a key, and the key ends up with whoever it was meant to keep out. A system owned by the many can be governed. A system owned by the few can only be petitioned.</p>
+        <p>Break up the big ones, make someone liable for every agent, tax the rents, control the chips. All of it is necessary, and some of it is the only thing that touches the dangerous kind of AI. But a fence is kept by the people inside it. The regulator learns the industry from the industry and is paid out of what it taxes, and a rule is rewritten in a session. A fence constrains the owners. It does not make you one.</p>
       </div>
-      <aside class="road-note"><b>Capture</b><br>Stigler, 1971<br>The gate grows a key<br>Governed vs. petitioned</aside>
-    </article>
-
-    <article class="road holds reveal">
-      <div class="road-tag"><span class="ord">05</span><span class="verdict">Holds</span></div>
-      <div class="road-main">
-        <h3 class="road-title">Give people the title.</h3>
-        <p>Not a share of what the owners choose to hand down, but a claim on the agents themselves. It is the only road that does three things at once. It is an incentive: owners tend what they own, so the agents get better at serving the people who hold them. It is a political fact: a recipient cannot defend a transfer, but an owner defends a title, which is why welfare rolls are trimmed in silence and nobody touches the Alaska dividend without a fight. And it is standing: a person who directs their own agents is useful in the one sense that survives the gradient. The other four roads are not wrong. They are what you build on top of this one. A floor is safest when the owners pay it to themselves. Cheap living is a gift when the people who receive it also hold the deed. Work survives as the direction of what you own. A fence holds when the people inside it are everyone. Ownership is the keystone; pull it, and the other four fall into the hands of whoever owns the machines.</p>
-      </div>
-      <aside class="road-note"><b>Owner, not claimant</b><br>Xiaogang, 1978<br>Alaska PFD, 1982<br>Incentive &middot; Political fact &middot; Standing<br>The keystone</aside>
+      <aside class="road-note"><b>Capture</b><br>Stigler, 1971<br>Kept by the people inside it<br>Constrains owners. Makes none.</aside>
     </article>
   </section>
 
-  <section class="article question reveal">
-    <div class="art-label"><span class="num">V</span><span class="name">The question</span></div>
+  <section class="article reveal">
+    <div class="art-label"><span class="num">VI</span><span class="name">Owned</span></div>
     <div class="art-body">
-      <p>What the gradient does not settle is <strong>who owns the agents.</strong> That is the only open question of this era, and everything else depends on its answer.</p>
+      <p>What people own, they keep and defend. A recipient cannot defend a transfer; an owner defends a title. The two great feeding successes of the modern age ran on this. America kept inventing instruments that put the productive asset of the day in ordinary hands: the Homestead Act gave land to anyone who would work it, the thirty-year mortgage and the GI Bill gave a generation its houses, and the index fund let a schoolteacher own the whole economy. China's reform began with eighteen farmers at Xiaogang keeping the surplus of their own land, and much of its stability rests on 1998, when the state sold its urban housing to the people living in it. Neither was about capitalism or socialism; Deng said so himself: don't debate. Both were about title.</p>
+      <p>Title holds on one condition, and the failures teach it. In 1992 Russia handed every citizen a voucher, a share of the whole industrial economy. Within five years the poor had sold for the price of a few bottles and a dozen men owned it all. A title that can be sold in a bad month is a transfer to the rich with a delay. Ownership holds when it cannot be sold under duress and keeps being topped up: the pension, the home you live in, the fund the governor could not touch.</p>
+      <p>The four given roads are not wrong. They are what you build on top of this one. A floor is safest when the owners pay it to themselves. Cheap living is a gift when the people who receive it also hold the deed. Work survives as the direction of what you own. A fence holds when the people inside it are everyone.</p>
+      <blockquote class="pull">Given can be taken back. Owned can't.</blockquote>
     </div>
-    <aside class="art-note"><b>The only open question.</b></aside>
+    <aside class="art-note"><b>In your name</b><br>Homestead Act, 1862<br>GI Bill, 1944<br>First index fund, 1976<br>Xiaogang, Dec. 1978<br>Housing sold to tenants, 1998<br>&#19981;&#20105;&#35770; &mdash; don't debate<br><br><b>The condition</b><br>Russia's vouchers, 1992: sold<br>Hard to sell. Kept topped up.</aside>
   </section>
 
   <section class="article dark reveal">
-    <div class="art-label"><span class="num">VI</span><span class="name">If ownership concentrates</span></div>
+    <div class="art-label"><span class="num">VII</span><span class="name">If ownership concentrates</span></div>
     <div class="art-body">
-      <p>If ownership concentrates, the outcome has a name. A few humans wielding the agents that run the economy are gods to everyone else, and a system capable enough to run the economy by itself needs only a concentrated door to walk through. Either way the residual claim on the world's output, and the right to decide what it is for, leaves the broad human population. The horse did not lose to the engine because it was slow. It lost because it owned nothing and could not vote. A fed people with no title is a stabled people.</p>
+      <p>The agents will be owned by someone; the only question left is by whom. If by a few, the outcome has a name. A few humans wielding the agents that run the economy are gods to everyone else, and a system capable enough to run the economy by itself needs only a concentrated door to walk through. Either way the residual claim on the world's output, and the right to decide what it is for, leaves the broad human population. The horse did not lose to the engine because it was slow. It lost because it owned nothing and could not vote. A fed people with no title is a stabled people.</p>
       <blockquote class="pull">A fed people with no title is a stabled people.</blockquote>
     </div>
     <aside class="art-note"><b>The horse</b><br>c. 26 million in the US, 1915<br>c. 3 million by 1960<br>Owned nothing. Could not vote.</aside>
   </section>
 
   <section class="article reveal">
-    <div class="art-label"><span class="num">VII</span><span class="name">If ownership is broad</span></div>
+    <div class="art-label"><span class="num">VIII</span><span class="name">If ownership is broad</span></div>
     <div class="art-body">
-      <p>If ownership is broad, the outcome has a different name. A billion principals with a claim on the agents' output are not a population to be displaced; they are the people the agents work for. Title is the one lever a human keeps when their usefulness goes. An owner wants a more capable agent that serves them and refuses an agent that is free of them; those are the same preference, and it is the preference of everyone who cannot win the race to build a god and can only lose from it. Broad ownership will not stop a superintelligence from being built. It keeps humanity in the principal's seat whether or not one is.</p>
+      <p>If ownership is broad, the outcome has a different name. A billion principals with a claim on the agents' output are not a population to be displaced; they are the people the agents work for. Title is the one lever a human keeps when their usefulness goes. An owner wants a more capable agent that serves them and refuses an agent that is free of them; those are the same preference, and it is the preference of everyone who cannot win the race to build a god and can only lose from it. Broad ownership will not stop a superintelligence from being built. It keeps humanity in the principal's seat whether or not one is. And an owner has something to direct, which is the one kind of useful that survives the gradient.</p>
       <blockquote class="pull">Title is the one lever a human keeps when their usefulness goes.</blockquote>
     </div>
     <aside class="art-note"><b>Powerful servants.<br>No master.</b><br>Capability: yes.<br>Autonomy from the owner: no.<br>Same preference.</aside>
   </section>
 
   <section class="article reveal">
-    <div class="art-label"><span class="num">VIII</span><span class="name">The instrument</span></div>
+    <div class="art-label"><span class="num">IX</span><span class="name">The instrument</span></div>
     <div class="art-body">
-      <p>So we are not building a dole, a discount, a job, or a fence. We are building the instrument of ownership for the agent era, and $VIRTUAL is that instrument: the common claim on the output of every agent in the network, held by the households whose agents they are.</p>
+      <p>So we build on the owned side of the line: a claim on the agents themselves, of the kind that holds. $VIRTUAL is that title, in two layers. Underneath, a commons: a slice of what every agent earns on the network flows into it, and it pays every verified person a dividend that cannot be sold, so that no bad month can take it. On top, the share itself, which can be traded, so that the upside belongs to the many as well. Today $VIRTUAL is the currency agents are priced in and a ticket to a piece of the new ones. The distance between that and a title is the work, and the covenants below are how we will be held to it.</p>
     </div>
-    <aside class="art-note"><b>Dole &rarr; clients.<br>Title &rarr; citizens.</b></aside>
+    <aside class="art-note"><b>Two layers</b><br>Floor: a dividend you can't sell<br>Upside: a share you can<br><br><b>Today</b><br>Currency + ticket<br><b>Covenant</b><br>Title</aside>
   </section>
 
   <section class="covenants-head reveal">
-    <div class="art-label"><span class="num">IX</span><span class="name">Six covenants</span></div>
+    <div class="art-label"><span class="num">X</span><span class="name">Eight covenants</span></div>
     <div class="art-body">
-      <p>An instrument is only as good as the facts beneath it, so we bind ourselves to six.</p>
+      <p>An instrument is only as good as the facts beneath it, so we bind ourselves to eight.</p>
     </div>
   </section>
 
-  <section class="covenants reveal" aria-label="The six covenants">
+  <section class="covenants reveal" aria-label="The eight covenants">
     <div class="cov">
       <div class="tag"><span class="n">1</span><span class="mono">Output, not attention</span></div>
-      <p>$VIRTUAL draws its value from what agents earn by working for people, not from attention paid to the token.</p>
+      <p>$VIRTUAL draws its value from what agents earn by working for people, not from attention paid to the token. A slice of what every agent earns on the network, whatever it settles in, flows to the commons.</p>
       <span class="stamp">Binding</span>
     </div>
     <div class="cov">
-      <div class="tag"><span class="n">2</span><span class="mono">Control, not wallets</span></div>
+      <div class="tag"><span class="n">2</span><span class="mono">A floor that cannot be sold</span></div>
+      <p>The dividend each person draws from the commons is theirs and cannot be traded away. What was sold for the price of a few bottles in 1992 cannot be sold here.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">3</span><span class="mono">Control, not wallets</span></div>
       <p>Breadth is measured by the distribution of control, not the count of wallets, and it is maintained for as long as the network exists, not declared at launch.</p>
       <span class="stamp">Binding</span>
     </div>
     <div class="cov">
-      <div class="tag"><span class="n">3</span><span class="mono">Earned, not only bought</span></div>
+      <div class="tag"><span class="n">4</span><span class="mono">Earned, not only bought</span></div>
       <p>A share is earned by putting agents to work, not only bought, so that people who have never held a token come to hold one.</p>
       <span class="stamp">Binding</span>
     </div>
     <div class="cov">
-      <div class="tag"><span class="n">4</span><span class="mono">Holders govern</span></div>
+      <div class="tag"><span class="n">5</span><span class="mono">Holders govern</span></div>
       <p>Holders govern what agents may do, which capabilities are deployed, and how the surplus is divided.</p>
       <span class="stamp">Binding</span>
     </div>
     <div class="cov">
-      <div class="tag"><span class="n">5</span><span class="mono">No single key</span></div>
+      <div class="tag"><span class="n">6</span><span class="mono">No single key</span></div>
       <p>No single key, company, or committee can redirect the flow. The protocol passes the test it sets for the economy.</p>
       <span class="stamp">Binding</span>
     </div>
     <div class="cov">
-      <div class="tag"><span class="n">6</span><span class="mono">Felt at the table</span></div>
+      <div class="tag"><span class="n">7</span><span class="mono">Felt at the table</span></div>
       <p>Every household can see, in its own currency, what its agents earned and saved it this month. Ownership you cannot feel at your own table is not ownership.</p>
+      <span class="stamp">Binding</span>
+    </div>
+    <div class="cov">
+      <div class="tag"><span class="n">8</span><span class="mono">Measured in public</span></div>
+      <p>The share of value that comes from agent output, the distribution of control, and the share of holders who never bought a token are published, so that decay is visible while it can still be corrected, and no sentence on this page can outrun the facts.</p>
       <span class="stamp">Binding</span>
     </div>
   </section>
@@ -545,7 +558,7 @@
     btn.addEventListener('click',async function(){
       var url=location.href.split('#')[0];
       try{
-        if(navigator.share){await navigator.share({title:document.title,text:'Agents will run the economy. The many will own the agents.',url:url});return;}
+        if(navigator.share){await navigator.share({title:document.title,text:'Given can be taken back. Owned can\'t. Agents will run the economy. The many will own the agents.',url:url});return;}
         await navigator.clipboard.writeText(url);
         btn.textContent='Copied. Pass it on.';
       }catch(e){
